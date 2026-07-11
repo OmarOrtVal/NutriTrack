@@ -1,47 +1,53 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Versión del servidor:         10.4.28-MariaDB - mariadb.org binary distribution
--- SO del servidor:              Win64
--- HeidiSQL Versión:             12.11.0.7065
--- --------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 11-07-2026 a las 22:31:23
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Base de datos: `nutritrack`
+--
 
--- Volcando estructura de base de datos para nutritrack
-CREATE DATABASE IF NOT EXISTS `nutritrack` /*!40100 DEFAULT CHARACTER SET utf32 COLLATE utf32_spanish_ci */;
-USE `nutritrack`;
+-- --------------------------------------------------------
 
--- Volcando estructura para tabla nutritrack.alimentos_registrados
-CREATE TABLE IF NOT EXISTS `alimentos_registrados` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario_id` int(11) DEFAULT NULL,
+--
+-- Estructura de tabla para la tabla `alimentos_registrados`
+--
+
+CREATE TABLE `alimentos_registrados` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
   `alimento` varchar(255) NOT NULL,
   `cantidad` decimal(8,2) NOT NULL,
   `unidad` varchar(50) NOT NULL,
   `calorias` decimal(8,2) NOT NULL,
-  `proteinas` decimal(8,2) DEFAULT NULL,
-  `carbohidratos` decimal(8,2) DEFAULT NULL,
-  `grasas` decimal(8,2) DEFAULT NULL,
-  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `usuario_id` (`usuario_id`),
-  CONSTRAINT `alimentos_registrados_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
+  `proteinas` decimal(8,2) DEFAULT 0.00,
+  `carbohidratos` decimal(8,2) DEFAULT 0.00,
+  `grasas` decimal(8,2) DEFAULT 0.00,
+  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- Volcando datos para la tabla nutritrack.alimentos_registrados: ~0 rows (aproximadamente)
-DELETE FROM `alimentos_registrados`;
+-- --------------------------------------------------------
 
--- Volcando estructura para tabla nutritrack.usuarios
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -50,66 +56,150 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `genero` enum('Mujer','Hombre','Personalizado') DEFAULT NULL,
   `peso` decimal(5,2) DEFAULT NULL,
   `altura` decimal(5,2) DEFAULT NULL,
-  `actividad_fisica` varchar(50) DEFAULT NULL,
+  `actividad_fisica` enum('sedentario','ligero','moderado','activo','muy_activo') DEFAULT NULL,
   `dieta_especifica` varchar(50) DEFAULT NULL,
-  `experiencia_cocina` varchar(50) DEFAULT NULL,
-  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
+  `experiencia_cocina` enum('principiante','intermedio','avanzado') DEFAULT NULL,
+  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- Volcando datos para la tabla nutritrack.usuarios: ~1 rows (aproximadamente)
-DELETE FROM `usuarios`;
-INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `fecha_nacimiento`, `genero`, `peso`, `altura`, `actividad_fisica`, `dieta_especifica`, `experiencia_cocina`, `fecha_registro`) VALUES
-	(1, 'Omar ', 'ort ', 'omar@correo.com', 'scrypt:32768:8:1$oavB2qYtAgUcV75n$5b7ddf04ae1fa66e130a256a26033e9896c376e10e3d05058cdbf8e2afb20d68edde99660a02856d4bbad6faa3d981b883c8521443f16bd196a7934eed02e43b', '2008-09-14', 'Hombre', 61.00, 170.00, 'sedentario', '', 'principiante', '2025-12-02 16:40:16');
+-- --------------------------------------------------------
 
--- Volcando estructura para tabla nutritrack.usuario_alergias
-CREATE TABLE IF NOT EXISTS `usuario_alergias` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario_id` int(11) DEFAULT NULL,
-  `alergia` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `usuario_id` (`usuario_id`),
-  CONSTRAINT `usuario_alergias_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
+--
+-- Estructura de tabla para la tabla `usuario_alergias`
+--
 
--- Volcando datos para la tabla nutritrack.usuario_alergias: ~1 rows (aproximadamente)
-DELETE FROM `usuario_alergias`;
-INSERT INTO `usuario_alergias` (`id`, `usuario_id`, `alergia`) VALUES
-	(1, 1, 'niguno');
+CREATE TABLE `usuario_alergias` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `alergia` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- Volcando estructura para tabla nutritrack.usuario_intolerancias
-CREATE TABLE IF NOT EXISTS `usuario_intolerancias` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario_id` int(11) DEFAULT NULL,
-  `intolerancia` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `usuario_id` (`usuario_id`),
-  CONSTRAINT `usuario_intolerancias_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
+-- --------------------------------------------------------
 
--- Volcando datos para la tabla nutritrack.usuario_intolerancias: ~1 rows (aproximadamente)
-DELETE FROM `usuario_intolerancias`;
-INSERT INTO `usuario_intolerancias` (`id`, `usuario_id`, `intolerancia`) VALUES
-	(1, 1, 'ninguno');
+--
+-- Estructura de tabla para la tabla `usuario_intolerancias`
+--
 
--- Volcando estructura para tabla nutritrack.usuario_objetivos
-CREATE TABLE IF NOT EXISTS `usuario_objetivos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario_id` int(11) DEFAULT NULL,
-  `objetivo` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `usuario_id` (`usuario_id`),
-  CONSTRAINT `usuario_objetivos_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
+CREATE TABLE `usuario_intolerancias` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `intolerancia` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- Volcando datos para la tabla nutritrack.usuario_objetivos: ~1 rows (aproximadamente)
-DELETE FROM `usuario_objetivos`;
-INSERT INTO `usuario_objetivos` (`id`, `usuario_id`, `objetivo`) VALUES
-	(1, 1, 'mantener_peso');
+-- --------------------------------------------------------
 
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+--
+-- Estructura de tabla para la tabla `usuario_objetivos`
+--
+
+CREATE TABLE `usuario_objetivos` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `objetivo` enum('bajar_peso','mantener_peso','subir_peso','ganar_musculo') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `alimentos_registrados`
+--
+ALTER TABLE `alimentos_registrados`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_alimentos_usuario` (`usuario_id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indices de la tabla `usuario_alergias`
+--
+ALTER TABLE `usuario_alergias`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_alergia_usuario` (`usuario_id`);
+
+--
+-- Indices de la tabla `usuario_intolerancias`
+--
+ALTER TABLE `usuario_intolerancias`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_intolerancia_usuario` (`usuario_id`);
+
+--
+-- Indices de la tabla `usuario_objetivos`
+--
+ALTER TABLE `usuario_objetivos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_objetivo_usuario` (`usuario_id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `alimentos_registrados`
+--
+ALTER TABLE `alimentos_registrados`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario_alergias`
+--
+ALTER TABLE `usuario_alergias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario_intolerancias`
+--
+ALTER TABLE `usuario_intolerancias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario_objetivos`
+--
+ALTER TABLE `usuario_objetivos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `alimentos_registrados`
+--
+ALTER TABLE `alimentos_registrados`
+  ADD CONSTRAINT `fk_alimentos_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `usuario_alergias`
+--
+ALTER TABLE `usuario_alergias`
+  ADD CONSTRAINT `fk_alergia_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `usuario_intolerancias`
+--
+ALTER TABLE `usuario_intolerancias`
+  ADD CONSTRAINT `fk_intolerancia_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `usuario_objetivos`
+--
+ALTER TABLE `usuario_objetivos`
+  ADD CONSTRAINT `fk_objetivo_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
