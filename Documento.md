@@ -79,7 +79,6 @@ enfocado en la simplicidad y la visualización clara de calorías.
     seguimiento de nutrientes específicos, planificación de comidas,
     conexión con más dispositivos/apps, y retos.
 
-- ![Loseit](static/img/loseit.jpg)
    
 **Puntos Fuertes:**
 
@@ -116,7 +115,6 @@ simplificar aún más el proceso de registro.
 
 -   **Experiencia de Usuario**:
 
-- ![noom](static/img/noom.jpg)
 Enfocada en la educación y el cambio de
 comportamiento a largo plazo. La interfaz es intuitiva, pero la
 experiencia se basa en la interacción con el coach y el contenido
@@ -174,7 +172,6 @@ fácil de navegar y el registro se simplifica con el escáner de código de
 barras y los accesos rápidos. Se centra en hacer que la alimentación
 saludable sea simple.
 
-- ![Lifesum](static/img/lifesum.jpg)
 -  **Modelo de Negocio**
 
 1.  **Freemium**. La versión gratuita permite el registro básico.
@@ -219,203 +216,6 @@ contadores de un solo toque.
 | **Punto Débil** | Funciones Premium limitadas | Alto costo | Planes avanzados de pago |
 | **Innovación Destacada** | “Snap It” y conexión fitness | Psicología aplicada y colores | “Life Score™” personalizado |
 
-
-# Encuesta Realizada a los Usuarios 
-
-1.  ¿Qué aplicación utilizas actualmente para seguimiento nutricional o
-    de peso? \*
-
--   MyFitnessPal
-
--   Fat Secret u otra similar
-
--   Noom
-
--   Lifesum u otra de hábitos.
-
--   Ninguna
-
--   Esta pregunta es muy importante para usar las aplicaciones que usen
-    mas comunmente los usuarios darnos una idea de la funcionalidad mas
-    util y en caso de que haya otras aplicaciones poder darnos una vista
-    mas amplia de que asi fuera
-
--   ![Pregunta1](static/img/pregunta1.png)
-
-2.  ¿Cuál es tu principal objetivo de salud/nutrición? \*
-
--   Pérdida de peso o composición corporal.
-
--   Mejorar energía y bienestar general.
-
--   Manejar o prevenir una condición de salud específica.
-
--   Esta pregunta es importante para tener mas enfoque en cuanto a el
-    uso que le da el usuario a las aplicaciones nutricionales
-
--   ![Pregunta2](static/img/pregunta2.png)
-
-3.  ¿Qué tan importante es para ti hacer seguimiento detallado de
-    Macronutrientes (Proteínas, Carbs, Grasas)? \*
-
--   Muy importante
-
--   Algo importante
-
--   Poco importante
-
--   Esta pregunta fue realizada para entender que tan importante es este
-    aspecto para el usuario
-
--   ![Pregunta3](static/img/pregunta3.png)
-
-
-4.  ¿Qué tan importante es para ti hacer seguimiento de Micronutrientes
-    (Vitaminas y Minerales)? \*
-
--   Muy importante
-
--   Algo importante
-
--   Poco importante
-
--   Esta pregunta fue realizada para entender que tan importante es este
-    aspecto para el usuario
-
--   ![Pregunta4](static/img/pregunta4.png)
-
-
-5.  ¿Preferirías una aplicación que se centre en\...? \*
-
--   Solo en el registro de alimentos (Diario calórico).
-
--   Solo en el aprendizaje de hábitos (Guías y lecciones).
-
--   Ambos aspectos por igual.
-
--   Esta pregunta fue realizada para darle el tema central o mas
-    importante
-
--   ![Pregunta5](static/img/pregunta5.png)
-
-6.  De las siguientes funciones, ¿cuál te resulta más útil? \*
-
--   Escáner de código de barras y registro rápido.
-
--   Recetas personalizadas y planes de comidas.
-
--   Gráficos de progreso y contenido educativo.
-
--   Esta pregunta fue realizada para saber que idea le parece mas
-    atractiva al usuario en cuanto a graficas para que la aplicacion no
-    parezca "aburrida" o poco intereante
-
--   ![Pregunta6](static/img/pregunta6.png)
-
-
-7.  ¿Usarías una sección de \"Comunidad\" para compartir recetas y
-    recibir apoyo de otros usuarios? \*
-
--   Sí, definitivamente.
-
--   Tal vez, si fuera fácil de usar.
-
--   No, prefiero usar la aplicación en privado.
-
--   Esta pregunta fue realizada basandonos en una idea personal de la
-    seccion "Comunidad" y si esto es atractivo a el usuario
-
-- ![Pregunta7](static/img/pregunta7.png)
-
-
-8.  ¿Cuál es el factor más frustrante que has encontrado en otras
-    aplicaciones de nutrición?
-
--   La base de datos de alimentos es incompleta o inexacta.
-
--   Es muy lenta o complicada de usar y registrar.
-
--   La personalización no se ajusta a mis necesidades reales.
-
-
--   Esta pregnta fue realizada para que las dificultades encontradas en
-    otras aplicaciones no se repitan en la nuestra aplicacion
-
--   ![Pregunta8](static/img/pregunta8.png)
-
-
-9.  Si la aplicación recomienda una receta, ¿qué factor consideras el
-    más importante?
-
--   Que sea rápida y fácil de preparar.
-
--   Que tenga un alto contenido de proteínas.
-
--   Que utilice ingredientes básicos.
-
--   Esta pregunta fue realizada para que el usuario nos diera una guia
-    de que tipo de recetas les resultan mas atractivas o motivadoras
-    para realizar en casa y por su cuenta propia
-
--   ![Pregunta9](static/img/pregunta9.png)
-
-
-10. ¿Qué tipo de seguimiento de progreso te motiva más? \*
-
--   Gráficos de evolución de peso.
-
--   Gráficos de la composición de tu dieta (ej. macros).
-
--   Gráficos del cumplimiento de hábitos (ej. agua, ejercicio).
-
--   Esta pregunta fue realizada para colocar el tipo de graficos que le
-    parezcan mas llamativos al usuario y asi tener una motivacion
-    constante
-
--   ![Pregunta10](static/img/pregunta10.png)
-
-
-11. Al registrar tus alimentos, ¿qué tipo de unidad de medida prefieres
-    usar?
-
--   Gramos o mililitros
-
--   Medidas caseras
-
--   Porciones
-
--   Esta pregunta fue realizada para tener la idea clara o base de lo
-    que el ususario comprende mas facilmente las medidas en cuanto a
-    alimentos para aplicarlos en la aplicacion
-
--   ![Pregunta11](static/img/pregunta11.png)
-
-**RESUMEN DE LO QUE LOS USUARIOS BUSCAN EN UNA APLICACIÓN:**
-
-1.  **Simplicidad y personalización.**\
-    Muchos se quejan de que las apps existentes son complicadas o no se
-    ajustan a sus necesidades reales. Quieren algo fácil, rápido y
-    adaptado a su tipo de dieta o rutina.
-
-2.  **Recetas prácticas y personalizadas.**\
-    La mayoría considera más útil tener **recetas** adaptadas (fáciles,
-    con ingredientes básicos y alto valor proteico) antes que funciones
-    complejas.
-
-3.  **Seguimiento equilibrado.**\
-    Prefieren una app que combine registro de alimentos y hábitos
-    saludables (no solo contar calorías).
-
-4.  **Motivación visual.**\
-    Los usuarios se motivan más con gráficos de progreso visuales,
-    especialmente de peso o cumplimiento de hábitos.
-
-5.  **Privacidad.**\
-    Varios no quieren usar funciones de comunidad; prefieren
-    experiencias individuales.
-
-6.  **Unidades simples.**\
-    Prefieren medidas caseras o porciones, no gramos exactos.
 
 # Perfil de Aplicación Futura 
 
